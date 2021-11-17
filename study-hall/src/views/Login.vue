@@ -8,14 +8,14 @@
               <h3>Login</h3>
               <h6 class="fw-light">Login to access your account</h6>
             </div>
-            <form>
+            <form @submit.prevent="login">
               <!--Email-->
               <div>
                 <label for="login-email" class="form-label"
                   >Email Address</label
                 >
                 <input
-                
+                  v-model="email"
                   type="text"
                   class="form-control"
                   id="login-email"
@@ -27,7 +27,7 @@
               <div class="mt-3">
                 <label for="login-password" class="form-label">Password</label>
                 <input
-            
+                  v-model="password"
                   type="password"
                   class="form-control"
                   id="login-password"
@@ -64,7 +64,34 @@
 
 <script>
 export default {
-    name: 'Login'
+    name: 'Login',
+    data: function(){
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      login: function(){
+        const payload = {
+          email: this.email,
+          password: this.password,
+        }
+        this.$store.dispatch("login", payload)
+        .then(({ data }) => {
+          console.log(data);
+          localStorage.setItem("access_token", data.access_token)
+          localStorage.setItem("email", data.email)
+          localStorage.setItem("id", data.id)
+          localStorage.setItem("username", data.username)
+          this.$store.commit("SET_IS_LOGIN", true)
+          this.$router.push('/')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
+    }
 }
 </script>
 
