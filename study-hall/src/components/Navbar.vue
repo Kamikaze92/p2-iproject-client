@@ -21,6 +21,9 @@
               <li class="nav-item">
                 <button @click.prevent="logout" v-if="isLogin" class="btn btn-login">Logout</button>
               </li>
+              <li class="nav-item">
+                <button @click.prevent="create" v-if="isLogin" class="btn btn-login">Create Thread</button>
+              </li>
             </ul>
           </div>
         </div>

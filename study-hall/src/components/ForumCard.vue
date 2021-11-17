@@ -11,14 +11,14 @@
     >
       <!--TITLE-->
       <div>
-        <h2>Thread By Asep</h2>
+        <h2>Thread By {{thread.User.username}}</h2>
         <div class="card-body style">
           <div
             class="border ps-3 pe-3 pb-2"
             style="border-radius: 20px; background-color: #dfe6e9"
           >
-            <h5 class="card-title">Asep</h5>
-            <p class="card-text">Fisika adalah hal yang menyenangkan?</p>
+            <h5 class="card-title">{{thread.User.username}}</h5>
+            <p class="card-text">{{thread.description}}</p>
           </div>
         </div>
       </div>
@@ -105,6 +105,7 @@
 <script>
 export default {
   name: "ForumCard",
+  props:['thread']
 };
 </script>
 
