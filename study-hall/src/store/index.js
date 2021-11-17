@@ -28,6 +28,15 @@ export default new Vuex.Store({
         url: "/authentication/register",
         data: payload
       })
+    },
+    showQuote: function (){
+      return axios({
+        method: "GET",
+        url: "/quote",
+        headers: {
+          access_token: localStorage.getItem("access_token")
+        }
+      })
     }
   },
   modules: {
