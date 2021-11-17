@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row" style="justify-content: center">
           <div class="col-5 mb-4" style="margin-top: 5%">
-            <form >
+            <form @submit.prevent="register">
               <div style="text-align: center">
                 <h3>Register</h3>
                 <h6 class="fw-light">
@@ -18,7 +18,7 @@
                   >Username</label
                 >
                 <input
-                
+                  v-model="username"
                   type="text"
                   class="form-control"
                   id="register-username"
@@ -31,6 +31,7 @@
                   >Email Address</label
                 >
                 <input
+                v-model="email"
                   type="text"
                   class="form-control"
                   id="register-email"
@@ -64,6 +65,7 @@
                 <p>
                   Already have an account yet?
                   <a
+                    @click.prevent="login"
                     href=""
                     style="text-decoration: none"
                     >Login</a
@@ -86,7 +88,33 @@
 
 <script>
 export default {
-    name: 'Register'
+    name: 'Register',
+    data: function() {
+      return {
+        username: '',
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      register: function () {
+        const payload = {
+        username: this.username,
+        email: this.email,
+        password: this.password
+        }
+        this.$store.dispatch("register", payload)
+        .then(() => {
+          this.$router.push('/login')
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      },
+      login: function () {
+        this.$router.push("/login")
+      }
+    }
 }
 </script>
 
