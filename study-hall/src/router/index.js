@@ -34,5 +34,15 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+ // ? Navigation Guard
+ router.beforeEach((to,from,next) => {
+  if((to.name === 'Login' && localStorage.getItem("access_token")) || (to.name === 'Register' && localStorage.getItem("access_token"))){
+    next('/')
+  } else if (to.name === 'Home' && !localStorage.getItem("access_token")){
+    next('/login')
+  } else {
+    next()
+  }
+})
 
 export default router
