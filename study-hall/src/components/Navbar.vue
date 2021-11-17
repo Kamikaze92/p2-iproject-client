@@ -21,12 +21,15 @@
               <li class="nav-item">
                 <button @click.prevent="logout" v-if="isLogin" class="btn btn-login">Logout</button>
               </li>
+              <li class="nav-item">
+                <button @click.prevent="createThread" v-if="isLogin" class="btn btn-login">Create Thread</button>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
-    <VueClock class="mt-3"/>
+    <VueClock class="mt-3 ms-3"/>
   </div>
 </template>
 
@@ -56,6 +59,9 @@ export default {
       },
       forum: function () {
         this.$router.push("/forum")
+      },
+      createThread: function () {
+        this.$router.push("/create-thread")
       }
     },
   components: {

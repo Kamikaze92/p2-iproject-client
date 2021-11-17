@@ -8,10 +8,14 @@ Vue.use(VueClock);
 export default new Vuex.Store({
   state: {
     isLogin: false,
+    threads: []
   },
   mutations: {
     SET_IS_LOGIN: function(state, payload = false){
       state.isLogin = payload
+    },
+    SET_THREAD: function(state, payload){
+      state.threads = payload
     },
   },
   actions: {
@@ -37,7 +41,33 @@ export default new Vuex.Store({
           access_token: localStorage.getItem("access_token")
         }
       })
-    }
+    },
+    getForum: function (context){
+      axios({
+        method: "GET",
+        url: "/thread",
+        headers: {
+          access_token: localStorage.getItem("access_token")
+        }
+      })
+      .then(({ data }) => {
+        console.log(data);
+        context.commit("SET_THREAD", data)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    },
+    createForm: function (_, payload){
+     return axios({
+        method: "POST",
+        url: "/thread",
+        headers: {
+          access_token: localStorage.getItem("access_token")
+        },
+        data: payload
+      })
+    },
   },
   modules: {
   }

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="bg"></div>
     <Navbar />
     <div class="d-flex justify-content-center align-items-end">
       <div class="row">
@@ -7,7 +8,7 @@
       </div>
       <!--Button Motivation-->
       <div class="row ms-3 align-items-center mb-2">
-        <button @click.prevent="showQuote" type="button" class="btn btn-info">
+        <button @click.prevent="showQuote" type="button" class="btn btn-dark mt-3">
           Boost me!
         </button>
       </div>
@@ -50,4 +51,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.bg{
+  background-image: url("https://wallpapercave.com/wp/wp8422895.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+}
+</style>
+
