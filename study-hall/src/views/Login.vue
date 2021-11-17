@@ -47,7 +47,7 @@
               <div class="mt-3 fw-light" style="text-align: center">
                 <p>
                   Don't have an account yet?
-                  <a href="" style="text-decoration: none">Register</a>
+                  <a @click.prevent="register" href="" style="text-decoration: none">Register</a>
                 </p>
                 <p>Or Login with</p>
                 <center>
@@ -90,6 +90,9 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+      },
+      register: function () {
+        this.$router.push("/register")
       }
     }
 }

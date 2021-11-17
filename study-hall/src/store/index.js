@@ -21,6 +21,13 @@ export default new Vuex.Store({
         url: "/authentication/login",
         data: payload
       })
+    },
+    register: function(_, payload){
+      return axios({
+        method: "POST",
+        url: "/authentication/register",
+        data: payload
+      })
     }
   },
   modules: {
