@@ -26,7 +26,7 @@
         </div>
       </div>
     </nav>
-    <VueClock class="mt-3"/>
+    <VueClock class="mt-3 ms-3"/>
   </div>
 </template>
 
