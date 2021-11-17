@@ -7,10 +7,10 @@
           <div class="d-flex flex-row-reverse">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <button class="btn btn-login">Home</button>
+                <button @click.prevent="home" class="btn btn-login">Home</button>
               </li>
               <li class="nav-item">
-                <button v-if="isLogin" class="btn btn-login">Ask Everyone</button>
+                <button @click.prevent="forum" v-if="isLogin" class="btn btn-login">Ask Everyone</button>
               </li>
               <li class="nav-item">
                 <button @click.prevent="login" v-if="!isLogin" class="btn btn-login">Login</button>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </nav>
-          <VueClock class="mt-3"/>
+    <VueClock class="mt-3"/>
   </div>
 </template>
 
@@ -50,6 +50,12 @@ export default {
       },
       login: function () {
         this.$router.push("/login")
+      },
+      home: function () {
+        this.$router.push("/")
+      },
+      forum: function () {
+        this.$router.push("/forum")
       }
     },
   components: {
