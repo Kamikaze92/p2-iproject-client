@@ -57,7 +57,17 @@ export default new Vuex.Store({
       .catch((err) => {
         console.log(err);
       })
-    }
+    },
+    createForm: function (_, payload){
+     return axios({
+        method: "POST",
+        url: "/thread",
+        headers: {
+          access_token: localStorage.getItem("access_token")
+        },
+        data: payload
+      })
+    },
   },
   modules: {
   }

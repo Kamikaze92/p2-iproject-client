@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Login from  '../views/Login.vue'
 import Register from  '../views/Register.vue'
 import Forum from  '../views/Forum.vue'
+import FormCreate from  '../views/FormCreate.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/forum',
     name: 'Forum',
     component: Forum
+  },
+  {
+    path: '/create-thread',
+    name: 'FormCreate',
+    component: FormCreate
   },
 ]
 

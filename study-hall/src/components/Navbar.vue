@@ -22,7 +22,7 @@
                 <button @click.prevent="logout" v-if="isLogin" class="btn btn-login">Logout</button>
               </li>
               <li class="nav-item">
-                <button @click.prevent="create" v-if="isLogin" class="btn btn-login">Create Thread</button>
+                <button @click.prevent="createThread" v-if="isLogin" class="btn btn-login">Create Thread</button>
               </li>
             </ul>
           </div>
@@ -59,6 +59,9 @@ export default {
       },
       forum: function () {
         this.$router.push("/forum")
+      },
+      createThread: function () {
+        this.$router.push("/create-thread")
       }
     },
   components: {
