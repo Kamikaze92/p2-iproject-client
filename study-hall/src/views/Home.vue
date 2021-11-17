@@ -1,34 +1,29 @@
 <template>
   <div>
     <Navbar />
-    <div>
-      <div>
-      <!--Audio player-->
-      <audio controls autoplay>
-        <source src="horse.ogg" type="audio/ogg">
-        <source src="horse.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+    <div class="d-flex justify-content-center align-items-end">
+      <div class="row">
+        <AudioPlayer />
       </div>
-      <div>
-        <!--Button Motivation-->
-        <button type="button" class="btn btn-info">Boost me!</button>
+      <!--Button Motivation-->
+      <div class = "row ms-3 align-items-center mb-2">
+      <button type="button" class="btn btn-info">Boost me!</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue'
+import AudioPlayer from "../components/AudioPlayer.vue";
+import Navbar from "../components/Navbar.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    Navbar
-  }
-}
+    Navbar,
+    AudioPlayer,
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
