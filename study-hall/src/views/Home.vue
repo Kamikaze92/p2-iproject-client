@@ -32,7 +32,6 @@ export default {
       this.$store
         .dispatch("showQuote")
         .then(({ data }) => {
-          console.log(data);
           Swal.fire({
             title: "Have some Boost",
             text: data,
@@ -44,7 +43,11 @@ export default {
           });
         })
         .catch((err) => {
-          console.log(err);
+          Swal.fire({
+          icon: "error",
+          title: "Oops..",
+          text: err.response.data
+        });
         });
     },
   },

@@ -51,11 +51,11 @@ export default new Vuex.Store({
         }
       })
       .then(({ data }) => {
-        console.log(data);
+        (data);
         context.commit("SET_THREAD", data)
       })
       .catch((err) => {
-        console.log(err);
+        (err);
       })
     },
     createForm: function (_, payload){
