@@ -67,6 +67,7 @@ export default {
       createForm: function () {
         const payload = {
           description: this.description
+          
         }
         this.$store.dispatch('createForm', payload)
       .then(({ data }) => {
