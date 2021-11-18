@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
     name: 'Login',
     data: function(){
@@ -79,23 +80,23 @@ export default {
         }
         this.$store.dispatch("login", payload)
         .then(({ data }) => {
-          (data);
           localStorage.setItem("access_token", data.access_token)
           localStorage.setItem("email", data.email)
           localStorage.setItem("id", data.id)
           localStorage.setItem("username", data.username)
           this.$store.commit("SET_IS_LOGIN", true)
-          this.$router.push('/')
           Swal.fire({
           icon: 'success',
-          text: 'login success'
+          text: 'Login success'
         })
+          this.$router.push('/')
         })
         .catch((err) => {
           Swal.fire({
-            icon: 'error',
-            text: err.response.message || "something wrong"
-          })
+          icon: "error",
+          title: "Oops..",
+          text: err.response.data
+        });
         })
       },
       register: function () {
