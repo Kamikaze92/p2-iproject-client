@@ -79,16 +79,23 @@ export default {
         }
         this.$store.dispatch("login", payload)
         .then(({ data }) => {
-          console.log(data);
+          (data);
           localStorage.setItem("access_token", data.access_token)
           localStorage.setItem("email", data.email)
           localStorage.setItem("id", data.id)
           localStorage.setItem("username", data.username)
           this.$store.commit("SET_IS_LOGIN", true)
           this.$router.push('/')
+          Swal.fire({
+          icon: 'success',
+          text: 'login success'
+        })
         })
         .catch((err) => {
-          console.log(err)
+          Swal.fire({
+            icon: 'error',
+            text: err.response.message || "something wrong"
+          })
         })
       },
       register: function () {

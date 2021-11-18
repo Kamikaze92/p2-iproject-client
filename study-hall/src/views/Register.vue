@@ -105,10 +105,17 @@ export default {
         }
         this.$store.dispatch("register", payload)
         .then(() => {
+          Swal.fire({
+            icon: 'success',
+            text: 'register success'
+          })
           this.$router.push('/login')
         })
         .catch((err) => {
-          console.log(err);
+         Swal.fire({
+            icon: 'error',
+            text: err.response.message || "something wrong"
+          }) 
         })
       },
       login: function () {
