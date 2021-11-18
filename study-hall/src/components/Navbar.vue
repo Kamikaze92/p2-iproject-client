@@ -45,7 +45,7 @@ export default {
     methods: {
       logout: function () {
         localStorage.clear()
-        this.$store.commit("SET_LOGIN", false)
+        this.$store.commit("SET_IS_LOGIN", false)
         this.$router.push("/login")
       },
       register: function () {
